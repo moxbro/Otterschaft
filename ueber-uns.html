@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über Uns | Die Edle Gesellschaft der Otterschaft</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00796b; /* Dunkles Türkis */
+            --secondary-color: #4db6ac; /* Helles Türkis */
+            --accent-color: #ffb300; /* Amber für Akzente */
+            --text-color: #333333;
+            --light-bg: #e0f2f7;
+            --dark-bg: #b2ebf2;
+            --header-bg: #26a69a; /* Mittleres Türkis */
+            --footer-bg: #80cbc4; /* Sehr helles Türkis */
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 70%);
+            transform: rotate(45deg);
+            animation: header-bg-pulse 15s infinite alternate;
+        }
+
+        @keyframes header-bg-pulse {
+            0% { transform: rotate(45deg) scale(0.8); opacity: 0.8; }
+            100% { transform: rotate(45deg) scale(1.2); opacity: 1; }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px 10px 10px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1em;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            white-space: nowrap; /* Verhindert Zeilenumbruch */
+            background-color: rgba(0,0,0,0.1); /* Standard-Hintergrund für Links */
+        }
+
+        nav ul li a::before {
+            content: ''; /* Entfernt das Problem-Pseudoelement */
+            display: none;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--dark-bg);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2.2em;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 50px;
+            height: 5px;
+            background-color: var(--accent-color);
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        ul {
+            list-style-type: none; /* Entfernt die Standard-Aufzählungszeichen */
+            padding-left: 20px;
+        }
+
+        ul li::before {
+            content: '✦'; /* Benutzerdefiniertes Aufzählungszeichen */
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .quote {
+            font-style: italic;
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-left: 5px solid var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .donation-call {
+            background-color: var(--dark-bg);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .donation-call:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .donation-call h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .donation-call p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .donate-button-main {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .donate-button-main:hover {
+            background-color: #ff9800;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            background-color: var(--footer-bg);
+            border-radius: 12px;
+            color: var(--primary-color);
+            font-size: 0.9em;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Die Edle Gesellschaft der Otterschaft</h1>
+        <p>Ein Bund für Fortschritt, Exzellenz und die tiefgreifende Erforschung des aquatischen Lebensraums.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="ueber-uns.html">Über Uns</a></li>
+                <li><a href="hall-of-fame.html">Ruhmeshalle</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="fade-in">
+            <h2>Über Uns: Die Säulen der Aquatischen Erkenntnis</h2>
+            <p>Die Edle Gesellschaft der Otterschaft repräsentiert eine Kohorte von Individuen, die sich der transdisziplinären Untersuchung maritimer Phänomene und der Kultivierung eines außergewöhnlichen Gemeinschaftsgeistes verschrieben haben. Unsere Vereinigung, gegründet auf den Prinzipien der Neugier, des Scharfsinns und einer unerschütterlichen Affinität zum nassen Element, strebt danach, die Grenzen des konventionellen Verständnisses zu erweitern und innovative Perspektiven auf die Wechselwirkungen zwischen Mensch und aquatischem Habitat zu etablieren.</p>
+            <p>Wir operieren unter dem erhabenen Motto <strong>"Omnia ad Pisces"</strong> (Alles für die Fische), welches die ultimative Dedikation unserer Bestrebungen symbolisiert. Dies ist nicht bloß eine Phrase, sondern eine tief verwurzelte Philosophie, die jeden Aspekt unserer Forschung, unserer Interaktionen und unserer altruistischen Bemühungen durchdringt. Unsere Arbeit ist geprägt von einer rigorosen Methodologie und einem spielerischen Ansatz, der es uns ermöglicht, selbst die trivialsten Beobachtungen in tiefgreifende Erkenntnisse zu transformieren.</p>
+            <h3>Unsere Werte und Vision</h3>
+            <ul>
+                <li><strong>Integrität und Transparenz:</strong> Wir verpflichten uns zu höchsten Standards wissenschaftlicher Redlichkeit und offener Kommunikation.</li>
+                <li><strong>Innovation und Kreativität:</strong> Wir fördern unkonventionelle Denkansätze und experimentelle Methodologien zur Generierung neuen Wissens.</li>
+                <li><strong>Gemeinschaft und Kollaboration:</strong> Wir glauben an die Kraft synergistischer Partnerschaften und den gegenseitigen Austausch von Fachwissen.</li>
+                <li><strong>Nachhaltigkeit und Verantwortung:</strong> Wir erkennen unsere Rolle als Hüter der aquatischen Ressourcen an und streben nach einem harmonischen Gleichgewicht.</li>
+            </ul>
+            <p class="quote">"Im endlosen Tanz der Wellen finden wir die unvergängliche Wahrheit unseres Seins."</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Die Edle Gesellschaft der Otterschaft. Alle Rechte vorbehalten.</p>
+        <p>Einrichtung für höhere aquatische Studien. Mitglied des Globalen Netzwerks für Flussökologie.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const fadeIn = (element) => {
+                const elementTop = element.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+                if (elementTop < viewportHeight - 100) {
+                    element.classList.add('fade-in');
+                }
+            };
+            const handleScroll = () => {
+                sections.forEach(fadeIn);
+            };
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+        });
+    </script>
+</body>
+</html>
